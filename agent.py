@@ -131,8 +131,9 @@ def train():
             if score > record:
                 record = score
                 agent.model.save()
+                print(f"Dabi has hit a new high score {record} in {agent.n_games}")
 
-            if agent.n_games % 10 == 10:
+            if agent.n_games % 10 == 0:
                 print(f"Game: {agent.n_games}, Score: {score}, Record: {record}")
 
             plot_scores.append(score)
