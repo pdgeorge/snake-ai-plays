@@ -37,7 +37,6 @@ class SnakeGameAI:
         self.clock = pygame.time.Clock()
         self.reset()
 
-
     def reset(self):
         # init game state
         self.direction = Direction.RIGHT
@@ -52,14 +51,12 @@ class SnakeGameAI:
         self._place_food()
         self.frame_iteration = 0
 
-
     def _place_food(self):
         x = random.randint(0, (self.w-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
         y = random.randint(0, (self.h-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
         self.food = Point(x, y)
         if self.food in self.snake:
             self._place_food()
-
 
     def play_step(self, action):
         self.frame_iteration += 1
@@ -95,7 +92,6 @@ class SnakeGameAI:
         # 6. return game over and score
         return reward, game_over, self.score
 
-
     def is_collision(self, pt=None):
         if pt is None:
             pt = self.head
@@ -107,7 +103,6 @@ class SnakeGameAI:
             return True
 
         return False
-
 
     def _update_ui(self):
         self.display.fill(BLACK)
